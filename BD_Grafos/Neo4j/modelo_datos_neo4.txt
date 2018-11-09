@@ -1,0 +1,267 @@
+/* 
+ **** Crear nodos de usuario 
+*/
+
+CREATE (u:Usuario { usuario: 'ejisselgb', nombre: 'Erika Gutierrez', registro: '2016/07/01', fechaNacimiento: '1994/06/26', ciudad: 'Cali', pais: 'Colombia', tipo: 'Privado', estado: 'activo' } );
+
+CREATE (u:Usuario { usuario: 'manuelv10', nombre: 'Manuel Vasquez', registro: '2014/01/24', fechaNacimiento: '1994/06/26', ciudad: 'Pereira', pais: 'Colombia', tipo: 'Publico', estado: 'activo'} );
+
+CREATE (u:Usuario { usuario: 'gersonm', nombre: 'Gerson Morera', registro: '2018/02/18', fechaNacimiento: '1994/06/26', ciudad: 'Cali', pais: 'Colombia', tipo: 'Publico', estado: 'activo' } );
+
+CREATE (u:Usuario { usuario: 'alejopuj', nombre: 'Alejandro Romero', registro: 2016/12/20, fechaNacimiento: 1994/06/26, ciudad: 'Bogota', pais: 'Colombia', tipo: 'Privado', estado: 'activo' } );
+
+CREATE (u:Usuario { usuario: 'jhoncito', nombre: 'Jhon Gomez', registro: 2016/03/15, fechaNacimiento: 1994/06/26, ciudad: 'Cali', pais: 'Colombia', tipo: 'Privado', estado: 'activo' } );
+
+CREATE (u:Usuario { usuario: 'edwinchu', nombre: 'Edwin Leon', registro: 2015/03/15, fechaNacimiento: 1994/06/26, ciudad: 'Cali', pais: 'Colombia', tipo: 'Publico', estado: 'activo' } );
+
+/*
+ **** Crear nodos de Tweet 
+*/
+
+
+CREATE (t:Tweet { id:'m1', texto: 'mensaje 1', fechaCreacion: '2016/06/26', hashtag: '#test1', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m2', texto: 'mensaje 2', fechaCreacion: '2017/10/30', tipo: 'Dr' } );
+
+CREATE (t:Tweet { id:'m3', texto: 'mensaje 3', fechaCreacion: '2018/12/13', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m4', texto: 'mensaje 4', fechaCreacion: '2016/10/01', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m5', texto: 'mensaje 5', fechaCreacion: '2017/11/08', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m6', texto: 'mensaje 6', fechaCreacion: '2017/08/13', hashtag: '#test2', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m7', texto: 'mensaje 7', fechaCreacion: '2018/06/12', hashtag: '#test2', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m8', texto: 'mensaje 8', fechaCreacion: '2018/10/25', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m9', texto: 'mensaje 9', fechaCreacion: '2016/10/31', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m10', texto: 'mensaje 10', fechaCreacion: '2018/10/25', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m11', texto: 'mensaje 11', fechaCreacion: '2016/11/20', hashtag: '#test1', tipo: 'Nr' } );
+
+CREATE (t:Tweet { id:'m12', texto: 'mensaje 12', fechaCreacion: '2016/12/31', tipo: 'Dr' } );
+
+CREATE (t:Tweet { id:'m13', texto: 'mensaje 13', fechaCreacion: '2017/01/01', tipo: 'Dr' } );
+
+
+/*
+ **** Crear nodos de Hashtag 
+*/
+
+CREATE (h:Hashtag { id:'h1', texto: '#test1' } );
+
+CREATE (h:Hashtag { id:'h2', texto: '#test2' } );
+
+
+/*
+ **** Relacion usuario / tweet 
+*/
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'ejisselgb' AND t.id = 'm1'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'ejisselgb' AND t.id = 'm2'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'ejisselgb' AND t.id = 'm3'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'manuelv10' AND t.id = 'm4'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'manuelv10' AND t.id = 'm5'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'manuelv10' AND t.id = 'm6'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'gersonm' AND t.id = 'm7'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'gersonm' AND t.id = 'm8'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'jhoncito' AND t.id = 'm9'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'jhoncito' AND t.id = 'm10'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'edwinchu' AND t.id = 'm11'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'edwinchu' AND t.id = 'm12'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+MATCH (u:Usuario), (t:Tweet)
+WHERE u.usuario = 'alejopuj' AND t.id = 'm13'
+CREATE (u)-[r:post ]->(t)
+return u,t;
+
+/*
+ **** Relacion tweet hashtag 
+*/
+
+MATCH (t:Tweet), (h:Hashtag)
+WHERE t.id = 'm1' AND h.id = 'h1'
+CREATE (t)-[r:tag ]->(h)
+return t,h;
+
+MATCH (t:Tweet), (h:Hashtag)
+WHERE t.id = 'm11' AND h.id = 'h1'
+CREATE (t)-[r:tag ]->(h)
+return t,h;
+
+MATCH (t:Tweet), (h:Hashtag)
+WHERE t.id = 'm6' AND h.id = 'h2'
+CREATE (t)-[r:tag ]->(h)
+return t,h;
+
+MATCH (t:Tweet), (h:Hashtag)
+WHERE t.id = 'm7' AND h.id = 'h2'
+CREATE (t)-[r:tag ]->(h)
+return t,h;
+
+/*
+ **** Relacion mensaje directos
+*/
+
+MATCH (t:Tweet), (u:Usuario)
+WHERE t.id = 'm2' AND u.usuario = 'manuelv10'
+CREATE (t)-[r:mentions ]->(u)
+return t,u;
+
+MATCH (t:Tweet), (u:Usuario)
+WHERE t.id = 'm13' AND u.usuario = 'edwinchu'
+CREATE (t)-[r:mentions ]->(u)
+return t,u;
+
+MATCH (t:Tweet), (u:Usuario)
+WHERE t.id = 'm12' AND u.usuario = 'alejopuj'
+CREATE (t)-[r:mentions ]->(u)
+return t,u;
+
+/*
+ **** Relacion mensajes retweeteados
+*/
+
+MATCH (t:Tweet), (w:Tweet)
+WHERE t.id = 'm10' AND w.id = 'm8'
+CREATE (t)-[r:retweets ]->(w)
+return t, w;
+
+MATCH (t:Tweet), (w:Tweet)
+WHERE t.id = 'm10' AND w.id = 'm8'
+CREATE (t)-[r:retweets ]->(w)
+return t, w;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'ejisselgb' AND s.usuario = 'manuelv10'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'manuelv10' AND s.usuario = 'ejisselgb'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'manuelv10' AND s.usuario = 'gersonm'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'manuelv10' AND s.usuario = 'jhoncito'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'gersonm' AND s.usuario = 'manuelv10'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'edwinchu' AND s.usuario = 'alejopuj'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'alejopuj' AND s.usuario = 'gersonm'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'alejopuj' AND s.usuario = 'edwinchu'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'alejopuj' AND s.usuario = 'ejisselgb'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+MATCH (u:Usuario), (s:Usuario)
+WHERE u.usuario = 'jhoncito' AND s.usuario = 'gersonm'
+CREATE (u)-[r:follow ]->(s)
+return u, s;
+
+
+CREATE CONSTRAINT ON (u:Usuario) ASSERT u.usuario IS UNIQUE;
+
+/**CONSULTAS**/
+
+/******* Punto 1 ******/
+MATCH (t:Tweet)-[r:tag]->(n) WHERE t.hashtag = '#test1'  WITH t, t.fechaCreacion as datetime ORDER BY datetime DESC RETURN t.texto, t.hashtag, t.fechaCreacion;
+
+MATCH (t:Tweet)-[r:tag]->(n) WHERE t.hashtag = '#test2'  WITH t, t.fechaCreacion as datetime ORDER BY datetime DESC RETURN t.texto, t.hashtag, t.fechaCreacion;
+
+/****** Punto 2 ******/
+
+MATCH (u:Usuario)-[r:post]->(n) WHERE u.usuario = "jhoncito" AND n.fechaCreacion >= "2018/05/01" OPTIONAL MATCH (t:Tweet)-[r:retweets]->(w) WITH u, n, t, n.fechaCreacion as datetime ORDER BY datetime DESC RETURN n.texto, n.fechaCreacion, u.usuario, t.texto; 
+
+
+/******* Punto 3 *******/
+
+MATCH (u:Usuario{usuario: 'alejopuj'}), (s:Usuario{usuario:'manuelv10'}), p=shortestPath((u)-[*..15]-(s)) RETURN p;
+
+
+
+/******* Punto 4 ********/
+
+MATCH (u:Usuario)-[r:post]->(n) WHERE u.ciudad = "Cali" AND n.fechaCreacion =~ '2016.*' WITH u, count(n) as numTweets ORDER BY numTweets DESC RETURN u.usuario, numTweets;
+
+
+/******** Punto 5 *******/
+
+MATCH (u:Usuario)-[s:post]->(t:Tweet),(t)-[r:retweets]->(n) WITH t, n, u
+RETURN t.id, n.id, t.fechaCreacion, u.usuario;
+
+
+
+
